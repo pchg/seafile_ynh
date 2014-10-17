@@ -40,23 +40,20 @@ sudo mkdir -p $final_path/logs
 sudo mkdir -p $final_path/seafile-data
 sudo mkdir -p $final_path/seafile-server-$seafile_version
 
-
 if [ `getconf LONG_BIT` = "64" ]
 then
-	debfile='seafile_3.1.7_amd64.deb'
+	tarball='seafile-server_3.1.6_x86-64.tar.gz'
 else
-	debfile='seafile_3.1.7_i386.deb'
+	tarball='seafile-server_3.1.6_i386.tar.gz'
 fi
 
-wget https://bitbucket.org/haiwen/seafile/downloads/$debfile 
-sudo dpkg -i $debfile
+wget https://bitbucket.org/haiwen/seafile/downloads/$tarball
+sudo tar zxvf $tarball
+sudo mv seafile-server-$seafile_version/* $final_path/seafile-server-$seafile_version
 
-#sudo tar xzf ../sources/'seafile-server_'$seafile_version'_i386.tar'
-#sudo mv seafile-server-$seafile_version/* $final_path/seafile-server-$seafile_version
 #sudo mv ../sources/'seafile-server_'$seafile_version'_i386.tar' $final_path/installed
 
-
-
+____________________________JEANSUILA_________________
 
 # Set permissions to seafile directory
 
