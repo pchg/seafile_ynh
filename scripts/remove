@@ -17,3 +17,6 @@ seahub_port=$(sudo yunohost app setting seafile seahub_port)
 sudo yunohost firewall disallow $ccnet_port
 sudo yunohost firewall disallow $seafile_port
 sudo yunohost firewall disallow $seahub_port
+
+apt-get remove -y seafile
+

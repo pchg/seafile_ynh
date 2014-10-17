@@ -31,7 +31,7 @@ if [[ ! $? -eq 0 ]]; then
 fi
 
 # Check dependencies
-sudo apt-get install -y python2.7 python-setuptools python-simplejson python-imaging python-mysqldb sqlite3
+sudo apt-get install -y python2.7 python-setuptools python-simplejson python-imaging python-mysqldb sqlite3 libjansson4 libqt4-dbus libqt4-network
 
 # Copy files to the right place
 sudo mkdir -p $final_path
@@ -39,11 +39,27 @@ sudo mkdir -p $final_path/installed
 sudo mkdir -p $final_path/logs
 sudo mkdir -p $final_path/seafile-data
 sudo mkdir -p $final_path/seafile-server-$seafile_version
-sudo tar xzf ../sources/'seafile-server_'$seafile_version'_i386.tar'
-sudo mv seafile-server-$seafile_version/* $final_path/seafile-server-$seafile_version
-sudo mv ../sources/'seafile-server_'$seafile_version'_i386.tar' $final_path/installed
+
+
+if [ `getconf LONG_BIT` = "64" ]
+then
+	debfile='seafile_3.1.7_amd64.deb'
+else
+	debfile='seafile_3.1.7_i386.deb'
+fi
+
+wget https://bitbucket.org/haiwen/seafile/downloads/$debfile 
+sudo dpkg -i $debfile
+
+#sudo tar xzf ../sources/'seafile-server_'$seafile_version'_i386.tar'
+#sudo mv seafile-server-$seafile_version/* $final_path/seafile-server-$seafile_version
+#sudo mv ../sources/'seafile-server_'$seafile_version'_i386.tar' $final_path/installed
+
+
+
 
 # Set permissions to seafile directory
+
 sudo chown -R www-data: $final_path
 
 # Find available ports
