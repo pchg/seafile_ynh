@@ -7,7 +7,7 @@ admin_password=$5
 is_public=$6
 final_path=/var/www/seafile
 seafile_data=$final_path/seafile-data
-seafile_version=3.1.1
+seafile_version=3.1.6
 
 port=''
 findPort () {
@@ -39,9 +39,9 @@ sudo mkdir -p $final_path/installed
 sudo mkdir -p $final_path/logs
 sudo mkdir -p $final_path/seafile-data
 sudo mkdir -p $final_path/seafile-server-$seafile_version
-sudo tar xzf ../sources/'seafile-server_'$seafile_version'_x86-64.tar'
+sudo tar xzf ../sources/'seafile-server_'$seafile_version'_i386.tar'
 sudo mv seafile-server-$seafile_version/* $final_path/seafile-server-$seafile_version
-sudo mv ../sources/'seafile-server_'$seafile_version'_x86-64.tar' $final_path/installed
+sudo mv ../sources/'seafile-server_'$seafile_version'_i386.tar' $final_path/installed
 
 # Set permissions to seafile directory
 sudo chown -R www-data: $final_path

@@ -1,1 +1,1 @@
-Seafile 3.1.1 64bit packaged for Yunohost
+Seafile 3.1.6 32bit packaged for Yunohost

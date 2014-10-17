@@ -8,7 +8,7 @@ default_seafile_data_dir=${TOPDIR}/seafile-data
 default_seahub_db=${TOPDIR}/seahub.db
 default_conf_dir=${TOPDIR}/conf
 
-export SEAFILE_LD_LIBRARY_PATH=${INSTALLPATH}/seafile/lib/:${INSTALLPATH}/seafile/lib64:${LD_LIBRARY_PATH}
+export SEAFILE_LD_LIBRARY_PATH=${INSTALLPATH}/seafile/lib/:${INSTALLPATH}/seafile/lib32:${LD_LIBRARY_PATH}
 
 use_existing_ccnet="false"
 use_existing_seafile="false"
@@ -363,8 +363,8 @@ echo
 export CCNET_CONF_DIR=$default_ccnet_conf_dir
 export SEAFILE_CONF_DIR=$seafile_data_dir
 
-export PYTHONPATH=${INSTALLPATH}/seafile/lib/python2.6/site-packages:${INSTALLPATH}/seafile/lib64/python2.6/site-packages:${INSTALLPATH}/seahub/thirdpart:$PYTHONPATH
-export PYTHONPATH=${INSTALLPATH}/seafile/lib/python2.7/site-packages:${INSTALLPATH}/seafile/lib64/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=${INSTALLPATH}/seafile/lib/python2.6/site-packages:${INSTALLPATH}/seafile/lib32/python2.6/site-packages:${INSTALLPATH}/seahub/thirdpart:$PYTHONPATH
+export PYTHONPATH=${INSTALLPATH}/seafile/lib/python2.7/site-packages:${INSTALLPATH}/seafile/lib32/python2.7/site-packages:$PYTHONPATH
 
 manage_py=${INSTALLPATH}/seahub/manage.py
 pushd "${INSTALLPATH}/seahub" 2>/dev/null 1>&2
